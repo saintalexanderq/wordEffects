@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
         
         
         while (YES) {
-            NSLog(@"Choose what you would like to do with your string:\n 1) Uppercase \n 2) Lowercase \n 3) Numberize \n 4) Canadianize \n 5) Respond \n 6) De-Space");
+            NSLog(@"Choose a respective number for what you would like to do with your string:\n 1) Uppercase \n 2) Lowercase \n 3) Numberize \n 4) Canadianize \n 5) Respond \n 6) De-Space \n 7) Word Count");
             int optionNum = 0;
             scanf("%d", &optionNum);
             
@@ -59,7 +59,13 @@ int main(int argc, const char * argv[]) {
                 // DE-SPACE
                 NSLog(@"%@", [inputString stringByReplacingOccurrencesOfString:@" " withString:@"-"]);
                 
-            } else {
+            } else if (optionNum == 7) {
+                // WORD COUNT
+                NSString *wordCount = inputString;
+                NSArray *count = [wordCount componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n"]];
+                NSLog(@"Word count of your string is %lu", (unsigned long)[count count]);
+            }
+            else {
                 NSLog(@"Please make sure your input is a number");
             }
     }
